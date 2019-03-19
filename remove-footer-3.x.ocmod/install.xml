@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+<name>Powered by Remover</name>
+<code>powered_by_remover</code>
+<version>1.0.10</version>
+<vqmver>2.6.1</vqmver>
+<author>bnit.it</author>
+<link>http://www.bnit.it</link>
+
+
+<file path="catalog/view/theme/*/template/common/footer.twig">
+	<operation error="skip" info="the main powered by for OC 2.3.02">
+		<search><![CDATA[{{ powered }}]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+
+	<!--OK TO KEEP -->
+	<operation error="skip" info="default theme">
+		<search><![CDATA[OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+	<operation error="skip" info="default theme">
+		<search><![CDATA[Please donate via PayPal to donate@opencart.com]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+	<operation error="skip">
+		<search><![CDATA[<!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+	<operation error="skip" info="removing echothemes">
+		<search><![CDATA[ Theme by <a href="http://www.echothemes.com">EchoThemes</a><br>]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+
+	<!--[END] OK TO KEEP -->
+	<operation error="skip" info="removing Rhythm Framework">
+		<search><![CDATA[Powered by <a href="http://www.echothemes.com/rhythm-framework.html" target="_blank">Rhythm Framework</a>]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+</file>
+
+
+
+<!-- REMOVE POWERED BY FOOTER but INSPECT STILL EXIST-->
+<file path="catalog/controller/common/footer.php">
+	<operation>
+		<search><![CDATA[sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()))]]></search>
+		<add position="replace"><![CDATA[$this->config->get('config_name') . ' ' . date('Y', time())]]></add>
+	</operation>
+</file>
+<!-- [END] REMOVE POWERED BY FOOTER but INSPECT STILL EXIST-->
+
+<!--OK TO KEEP -->
+<file path="admin/view/template/common/footer.twig">
+	<operation error="skip">
+		<search><![CDATA[{{ text_footer }}]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+</file>
+
+
+
+<file path="catalog/model/extension/openbay/ebay_order.php" error="skip">
+	<operation error="skip">
+		<search><![CDATA[<a href="http://www.openbaypro.com/">OpenBay Pro - eBay and Amazon order management for OpenCart</a> . ]]></search>
+		<add position="replace"><![CDATA[]]></add>
+	</operation>
+</file>
+	<!--[END] OK TO KEEP -->
+
+
+</modification>
