@@ -1,1 +1,1 @@
-# Ecommerce
+# Ecommerce and freelance project
